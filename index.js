@@ -1,11 +1,12 @@
 // TODO: Include packages needed for this application
 // Required: Inquirer Package | https://www.npmjs.com/package/inquirer/v/8.2.4 //
-const inquirer = require('inquirer');
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 // TODO: Create an array of questions for user input
-// title, description, installation instructions, usage information, contribution guidelines, and test instructions
 const questions = [
     {
+        // For title input //
         type: "input",
         name: "title",
         message: "Please enter the title of your project. (Required)",
@@ -19,6 +20,7 @@ const questions = [
         }
     },
     {
+        // For description input //
         type: "input",
         name: "Description",
         message: "Please enter a description about your project. (Required)",
@@ -32,33 +34,38 @@ const questions = [
         }
     },
     {
+        // For installation input //
         type: "input",
         name: "Installation",
         message: "Please enter any installation instructions if needed.",
     },
     {
+        // For usage input //
         type: "input",
         name: "Usage",
         message: "How is the application used?",
     },
     {
+        // For contribution guidelines input //
         type: "input",
         name: "contribution",
         message: "What are the contribution guidelines?",
     },
     {
+        // For test instructions input //
         type: "input",
         name: "test",
         message: "What are the test instructions for the project?",
     },
     {
+        // For license input //
         type: "input",
         name: "license",
         message: "What is the license for the project?",
         choices: ["MIT", "APACHE 2.0", "Eclipse PL", "GNU GPL", "GNU AGPL", "GNU GPL", "GNU LGPL", "Mozilla Public 2.0", "Unlicense", "None"]
-        default: "MIT"
     },
     {
+        // For GitHub username input //
         type: "input",
         name: "userName",
         message: "What is your GitHub username for contact in case of any questions?",
@@ -72,6 +79,7 @@ const questions = [
         }
     },
     {
+        // For email input //
         type: "input",
         name: "email",
         message: "What is your email address for contact in case of any questions?",
