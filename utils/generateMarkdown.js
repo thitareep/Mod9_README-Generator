@@ -1,11 +1,42 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+// For license badges | https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba //
 // MIT", "APACHE", "Eclipse PL", "GNU GPL v3.0"
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  let badge = "";
+  if (license === "MIT") {
+    badge = "![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)"
+  } else if (license === "Apache 2.0") {
+    badge = "![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+  } else if (license === "Eclipse PL 2.0") {
+    badge = "![License](https://img.shields.io/badge/License-EPL_2.0-red.svg)](https://opensource.org/licenses/EPL-2.0)"
+  } else if (license === "GNU GPL v3.0") {
+    badge = "![License GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+  } else if (license === "Unlicense") {
+    badge = "![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
+  } else {
+    badge = ""
+  }
+  return badge;
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === "MIT") {
+    return "ttps://opensource.org/licenses/MIT"
+  } else if (license === "Apache 2.0") {
+    return "https://opensource.org/licenses/Apache-2.0"
+  } else if (license === "Eclipse PL") {
+    return "https://opensource.org/licenses/EPL-2.0"
+  } else if (license === "GNU GPL v3.0") {
+    return "https://www.gnu.org/licenses/gpl-3.0"
+  } else if (data.license === "Unlicense") {
+    return "http://unlicense.org/"
+  } else {
+    return " ";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -39,6 +70,7 @@ function generateMarkdown(data) {
   
   ## License
   ${data.license}
+  ${renderLicenseSection(data.license)})}
   
   ## Tests
   ${data.test}

@@ -2,6 +2,7 @@
 // Required: Inquirer Package | https://www.npmjs.com/package/inquirer/v/8.2.4 //
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -22,7 +23,7 @@ const questions = [
     {
         // For description input //
         type: "input",
-        name: "Description",
+        name: "description",
         message: "Please enter a description about your project. (Required)",
         validate: descriptionInput => {
             if (descriptionInput) {
@@ -36,13 +37,13 @@ const questions = [
     {
         // For installation input //
         type: "input",
-        name: "Installation",
+        name: "installation",
         message: "Please enter any installation instructions if needed.",
     },
     {
         // For usage input //
         type: "input",
-        name: "Usage",
+        name: "usage",
         message: "How is the application used?",
     },
     {
@@ -62,7 +63,7 @@ const questions = [
         type: "input",
         name: "license",
         message: "What is the license for the project?",
-        choices: ["MIT", "APACHE 2.0", "Eclipse PL", "GNU GPL", "GNU AGPL", "GNU GPL", "GNU LGPL", "Mozilla Public 2.0", "Unlicense", "None"]
+        choices: ["MIT", "Apache 2.0", "Eclipse PL", "GNU GPL v3.0", "Unlicense", "None"]
     },
     {
         // For GitHub username input //
