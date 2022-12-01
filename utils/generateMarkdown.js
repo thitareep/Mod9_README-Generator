@@ -82,6 +82,9 @@ function generateMarkdown(data) {
   ## Tests
   ${data.test}
 
+  ## Contribution
+  ${data.contribution}
+
   ## Questions
   Have any questions about this project/application?
   Please contact:
