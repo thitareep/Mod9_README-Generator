@@ -40,6 +40,8 @@
   ## Tests
   N/A
 
+  ## Contribution
+
   ## Questions
   Have any questions about this project/application?
   Please contact:
