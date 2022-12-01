@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 // For license badges | https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba //
-// MIT", "APACHE", "Eclipse PL", "GNU GPL v3.0"
+
 function renderLicenseBadge(license) {
   let badge = "";
   if (license === "MIT") {
@@ -40,7 +40,13 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === "None") {
+    return "";
+  } else {
+    return ` ## License: This project/application is covered under the ${license} license. For more information, please click on the license badge.`
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -77,7 +83,7 @@ function generateMarkdown(data) {
 
   ## Questions
   Have any questions about this project/application?
-  Contact:
+  Please contact:
   GitHub | https://github.com/${data.userName}
   Email | ${data.email}
 
