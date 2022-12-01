@@ -94,9 +94,15 @@ const questions = [
             }
         }
     },
+    {
+        // For contribution guidelines input //
+        type: "input",
+        name: "credits",
+        message: "Enter the name(s) credited for this project/application.",
+    },
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file //
 const writeToFile = data => {
     return new Promise((resolve,reject) => {
         fs.writeFile("./genREADME.md", data, err => {
@@ -112,12 +118,11 @@ const writeToFile = data => {
     });
 };
 
-// TODO: Create a function to initialize app
+// Function to initialize app // 
 function init() {
     inquirer.prompt(questions)
     .then(function(data) {
-        writeToFile("./genREADME.md", generateMarkdown(data));
-        console.log(data)
+        writeToFile(generateMarkdown(data));
     })
 }
 

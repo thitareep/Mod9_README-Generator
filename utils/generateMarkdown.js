@@ -5,7 +5,7 @@
 function renderLicenseBadge(license) {
   let badge = "";
   if (license === "MIT") {
-    badge = "![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)"
+    badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)"
   } else if (license === "Apache 2.0") {
     badge = "![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
   } else if (license === "Eclipse PL 2.0") {
@@ -24,14 +24,14 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === "MIT") {
-    return "ttps://opensource.org/licenses/MIT"
+    return "https://opensource.org/licenses/MIT"
   } else if (license === "Apache 2.0") {
     return "https://opensource.org/licenses/Apache-2.0"
   } else if (license === "Eclipse PL") {
     return "https://opensource.org/licenses/EPL-2.0"
   } else if (license === "GNU GPL v3.0") {
     return "https://www.gnu.org/licenses/gpl-3.0"
-  } else if (data.license === "Unlicense") {
+  } else if (license === "Unlicense") {
     return "http://unlicense.org/"
   } else {
     return " ";
@@ -44,7 +44,7 @@ function renderLicenseSection(license) {
   if (license === "None") {
     return "";
   } else {
-    return ` ## License: This project/application is covered under the ${license} license. For more information, please click on the license badge.`
+    return ` #### This project/application is covered under the ${license} license. For more information, please click on the link or license badge above.`
   }
 }
 
@@ -53,7 +53,7 @@ function generateMarkdown(data) {
   return `
   # ${data.title}
 
-  ${renderLicenseBadge(data.license)}}
+  ${renderLicenseBadge(data.license)}
 
   ## Table of Contents
   * [Description](#description)
@@ -76,7 +76,8 @@ function generateMarkdown(data) {
   
   ## License
   ${data.license}
-  ${renderLicenseSection(data.license)})}
+  ${renderLicenseSection(data.license)}
+  ${renderLicenseLink(data.license)}
   
   ## Tests
   ${data.test}
